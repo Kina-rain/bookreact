@@ -13,6 +13,7 @@ save to the reading list, the user can choose to remove that item if they no lon
 * Link: 
 
 ## Screenshot
+![alt text][screenshot]
 [screenshot]: https://github.com/Kina-rain/bookreact/blob/master/screenshot.png "React Book Project"
 
 ## GitHub Link
