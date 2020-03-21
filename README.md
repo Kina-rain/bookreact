@@ -10,15 +10,13 @@ save to the reading list, the user can choose to remove that item if they no lon
 
 ## Heroku
 
-* Link: 
-
-## Screenshot
-![alt text][screenshot]
-[screenshot]: https://github.com/Kina-rain/bookreact/blob/master/screenshot.png "React Book Project"
-
-## GitHub Link
+## GitHub Link and screenshot
 
 * Link: https://github.com/Kina-rain/bookreact
+
+![alt text][screenshot]
+
+[screenshot]: https://github.com/Kina-rain/bookreact/blob/master/screenshot.png "React Book Project"
 
 ### References
 
