@@ -10,9 +10,12 @@ let PORT = process.env.PORT;
 //setup our app
 let app = express();
 
+const publicPath = path.join(__dirname, 'client', 'build');
+app.use(express.static(publicPath));
+
 //if no api routes are asked for, shove them to the website
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(publicPath, 'index.html'));
 });
 
 //define the middle ware stuff
