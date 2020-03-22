@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv/config');
+if(process.env.NODE_ENV != 'production') {const dotenv = require('dotenv/config')};
 const routes = require('./src/routes');
 
 //setup our port
-let PORT = process.env.WEB_PORT;
+let PORT = process.env.PORT;
 
 //setup our app
 let app = express();
