@@ -7,7 +7,7 @@ router.use('/api', apiRoutes);
 
 //if no api routes are asked for, shove them to the website
 router.use((req, res) => {
-    res.redirect('http://localhost:3000');
+    res.sendFile(path.join(__dirname + '../../../client/build/index.html'));
 });
 
 module.exports = router;
