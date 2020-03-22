@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
 if(process.env.NODE_ENV != 'production') {const dotenv = require('dotenv/config')};
 const routes = require('./src/routes');
@@ -10,17 +9,13 @@ let PORT = process.env.PORT;
 //setup our app
 let app = express();
 
-const publicPath = path.join(__dirname, 'client', 'build');
-app.use(express.static(publicPath));
-
-//if no api routes are asked for, shove them to the website
-app.get('/', (req, res) => {
-    res.sendFile(path.join(publicPath, 'index.html'));
-});
-
 //define the middle ware stuff
 app.use(express.urlencoded( { extended: true}) );
 app.use(express.json());
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client"));
+  }
 
 //use the routes
 app.use(routes);
