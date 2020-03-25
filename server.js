@@ -13,12 +13,15 @@ let app = express();
 //define the middle ware stuff
 app.use(express.urlencoded( { extended: true}) );
 app.use(express.json());
-const staticFiles = express.static(path.join(__dirname, '/client/build'));
 
-//test for production
-if (process.env.NODE_ENV === "production") {
-    app.use('/*', staticFiles);
-  }
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+      res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
 
 //use the routes
 app.use(routes);
