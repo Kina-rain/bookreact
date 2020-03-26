@@ -17,13 +17,14 @@ app.use(express.json());
 console.log(process.env.NODE_ENV);
 
 if (process.env.NODE_ENV === 'production') { 
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, 'client')));  
+  let staticPath = path.join(__dirname, '../client/build');
+    // Serve any static files
+    app.use(express.static(staticPath));
 
-  // Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client','public','index.html'));
-  }); 
+    // Handle React routing, return all requests to React app
+    app.get('*', (req, res) => {
+        res.sendFile('index.html', { staticPath });
+    });
 }
 
 //use the routes
