@@ -14,10 +14,9 @@ let app = express();
 app.use(express.urlencoded( { extended: true}) );
 app.use(express.json());
 
-console.log(process.env.NODE_ENV);
-
 if (process.env.NODE_ENV === 'production') { 
   let staticPath = path.join(__dirname, 'client/build');
+  console.log(staticPath);
     // Serve any static files
     app.use(express.static(staticPath));
 
